@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html{
+  font-size: 62.5%; //to get 10px, default is 16px;
+
+  @include medium-manager(tab-land){
+    font-size:  56.25%;   // 1rem = 9px;
+  }
+
+  @include medium-manager(tab-por){
+      font-size:  50%;   // 1rem = 8px;
+  }
+
+  @include medium-manager(big-desk){
+    font-size:  75%;   // 1rem = 12px;
+  }
+
+}
+
+body{
+	font-family: "Lato",sans-serif;
+	font-weight: 400;
+	padding: 3rem;
+	line-height: 1.7;
+	color: $color-gray;
+	box-sizing: border-box;
+
+    @include medium-manager(tab-por){
+        padding: 0;
+    }
+}

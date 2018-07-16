@@ -1,0 +1,174 @@
+.tour-box__card{
+    //functionality
+    position: relative;
+    perspective: 150rem;
+    height: 50rem;
+    &__side{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 50rem;
+        transition: all 0.8s ease;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        &--front{
+            background-color: $color-white;
+        }
+        &--back{
+            background-size: cover;
+            transform: rotateY(180deg);
+            &--1{
+                background-image: linear-gradient(to right,rgba($color-linear-left,0.8),rgba($color-linear-right,0.8));
+            }
+            &--2{
+                background-image: linear-gradient(to right,rgba($color-linear-secondary-left,0.8),rgba($color-linear-secondary-right,0.8));
+            }
+            &--3{
+                background-image: linear-gradient(to right,rgba($color-linear-tertiary-left,0.8),rgba($color-linear-tertiary-right,0.8));
+            }
+        }
+    }
+
+    &:hover &__side--front{
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back{
+        transform: rotateY(0);
+    }
+
+    //tour-box__card__picture
+    &__picture{
+        height: 23rem;
+        background-size: cover;
+        width: 100%;
+        border-radius: 3px;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        overflow: hidden;
+        &--1{
+            background-image: linear-gradient(to right,rgba($color-linear-left,0.8),rgba($color-linear-right,0.8)),
+            url("../img/nat-8.jpg");
+        }
+        &--2{
+            background-image: linear-gradient(to right,rgba($color-linear-secondary-left,0.8),rgba($color-linear-secondary-right,0.8)),
+            url("../img/nat-7.jpg");
+        }
+        &--3{
+            background-image: linear-gradient(to right,rgba($color-linear-tertiary-left,0.8),rgba($color-linear-tertiary-right,0.8)),
+            url("../img/nat-6.jpg");
+        }
+    }
+
+    &__heading{
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        text-align: right;
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: white;
+        width: 75%;
+    }
+
+    &__heading--span{
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        padding: 1rem 1.5rem;
+        &--1{
+            background-image: linear-gradient(to right,rgba($color-linear-left,0.8),rgba($color-linear-right,0.8));
+        }
+        &--2{
+            background-image: linear-gradient(to right,rgba($color-linear-secondary-left,0.8),rgba($color-linear-secondary-right,0.8));
+        }
+        &--3{
+            background-image: linear-gradient(to right,rgba($color-linear-tertiary-left,0.8),rgba($color-linear-tertiary-right,0.8));
+        }
+    }
+
+    &__details{
+
+        li{
+            width: 60%;
+            color: $color-gray;
+            margin: 0 auto;
+            list-style: none;
+            text-align: center;
+            font-size: 1.8rem;
+            padding: 1rem;
+            &:not(:last-child){
+                border-bottom: 1px solid $color-gray;
+            }
+        }
+    }
+    //back page
+    &-back{
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: $color-white;
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-top: -5rem;
+        &__only{
+            margin-bottom: 4rem;
+        }
+
+        &__value{
+            font-size: 6rem;
+            font-weight: 100;
+            margin-bottom: 4rem;
+        }
+    }
+
+    @include medium-manager(tab-por){
+        //functionality
+        height: auto;
+        border-radius: 3px;
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+        background-color: white;
+        &__side{
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            height: auto;
+            box-shadow:none;
+            &--back{
+                transform: rotateY(0deg);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+
+        &:hover &__side--front{
+            transform: rotateY(0deg);
+        }
+
+        //back page
+        &-back{
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0, 0);
+            margin-top: 0;
+            padding: 4rem;
+            box-shadow:none;
+            &__only{
+                margin-bottom: 3rem;
+            }
+
+            &__value{
+                font-size: 4rem;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,80 @@
+.story{
+    &__box{
+        width: 60%;
+        margin: 0 auto;
+        background-color: rgba($color-gray-1,0.5);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+        border-radius: 3px;
+        transform: skewX(-15deg);
+        padding: 6rem;
+        padding-left: 9rem;
+
+        @include medium-manager(tab-por){
+          padding: 3rem;
+          padding-left: 4rem;
+          width: 100%;
+        }
+
+        @include medium-manager(phone){
+          transform: skewX(0);
+        }
+    }
+
+    &__figure{
+        //to make element floated, you have to specify width and height;
+        float: left;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 3px;
+        box-shadow: 0 1rem 2rem rgba($color-black,0.2);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(15deg);
+        @include medium-manager(phone){
+          transform: translateX(-3rem) skewX(0deg);
+        }
+    }
+    &__img{
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform: scale(1.4);
+        transition: all 0.4s;
+    }
+
+    &__caption{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,20%);
+        text-align: center;
+        color: $color-white;
+        font-size: 1.7rem;
+        transition: all 0.4s;
+        opacity: 0;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        text-transform: uppercase;
+    }
+
+    &__text{
+        font-size: 1.6rem;
+        color: $color-gray;
+        transform: skewX(15deg);
+        @include medium-manager(phone){
+          transform: skewX(0deg);
+        }
+    }
+
+    &__box:hover &__caption{
+        opacity: 1;
+        transform: translate(-50%,-50%);
+    }
+
+    &__box:hover &__img{
+        filter: blur(3px) brightness(80%);
+        transform: scale(1.0);
+
+    }
+}

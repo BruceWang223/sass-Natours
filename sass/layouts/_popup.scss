@@ -1,0 +1,109 @@
+.popup{
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba($color-black, 0.85);
+    opacity: 0;
+    width: 100%;
+    transition: all 0.3s;
+    visibility: hidden;
+    &:target{
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    &:target &__box{
+        transform: translate(-50%, -50%)  scale(1);
+        opacity: 1;
+    }
+    &__box{
+        width: 75%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: table;
+        border: 2px solid gray;
+        border-radius: 3px;
+        overflow: hidden;
+        background-color: white;
+        transform: translate(-50%, -50%)  scale(0.5);
+        opacity: 0;
+        transition: all 0.4s 0.2s;
+    }
+
+    &__left{
+        width: 33.333%;
+        display: table-cell;
+
+        @include medium-manager(tab-por){
+          width: 100%;
+          display: block;
+        }
+    }
+
+    &__right{
+        width: 66.667%;
+        display: table-cell;
+        padding: 2rem 3rem;
+        vertical-align: top;
+
+
+        @include medium-manager(tab-land){
+          //width: 100%;
+          //display: block;
+          padding: 1rem 1rem;
+        }
+
+        @include medium-manager(tab-por){
+          width: 100%;
+          display: block;
+        }
+    }
+
+    &__img{
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        @include medium-manager(tab-por){
+
+          display: none;
+        }
+    }
+
+
+    &__content{
+        column-count: 2;
+        column-rule: 2px solid gray;
+        column-gap: 4rem;
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
+        @include medium-manager(tab-por){
+          column-count: 1;
+          column-rule: none;
+          column-gap: 0;
+          margin-bottom: 2rem;
+          padding: 1rem;
+        }
+    }
+
+    &__close{
+        &:link,&:visited{
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: inline-block;
+            color: $color-gray;
+        }
+
+        &:hover{
+            color: $color-linear-left;
+        }
+    }
+}

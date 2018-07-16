@@ -1,0 +1,25 @@
+.u-center-text{ text-align: center}
+.u-margin-bottom-small{
+  margin-bottom: 1.5rem;
+  @include medium-manager(tab-por){
+    padding: 1rem;
+  }
+}
+.u-margin-bottom-medium{
+  margin-bottom: 4rem;
+  @include medium-manager(tab-por){
+    margin-bottom: 2rem;
+  }
+}
+.u-margin-bottom-big{
+  margin-bottom: 8rem;
+  @include medium-manager(tab-por){
+    margin-bottom: 4rem;
+  }
+}
+.u-margin-top-small{
+  margin-top: 1.5rem;
+  @include medium-manager(tab-por){
+    margin-bottom: .5rem;
+  }
+}

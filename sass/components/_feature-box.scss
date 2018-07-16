@@ -1,0 +1,24 @@
+.feature-box{
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: rgba($color-white,0.8);
+    border-radius: 3px;
+    padding: 2rem;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    transition: all 0.3s;
+    @include medium-manager(tab-por){
+      padding: 1rem;
+    }
+    &__icon{
+        display: inline-block;
+        font-size: 6rem;
+        background-image: linear-gradient(to right,rgba($color-linear-left,0.8),rgba($color-linear-right,0.8));
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    &:hover{
+        transform: translateY(-0.5rem) scale(1.05);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+}
